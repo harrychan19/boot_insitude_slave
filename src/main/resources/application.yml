@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: boot_insitude_slave
+  datasource:
+    url: jdbc:mysql://localhost:3306/primary
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 9098
+
+
+dubbo:
+  application:
+    name: boot_consumer
+  scan:
+    packages: com.hsh.dubbo
+  registry:
+    address: zookeeper://211.159.161.12:2181
+  protocol:
+    name: dubbo
+    port: 20881
+
+logging:
+  config: classpath:logback.xml
